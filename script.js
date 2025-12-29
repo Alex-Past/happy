@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработчик кнопки
     button.addEventListener('click', function() {
         wish.classList.add('show');
-        button.textContent = 'Желание загадано!';
+        button.textContent = 'Разгадай секрет!';
         button.style.background = 'linear-gradient(to right, #FFD700, #FFA500)';
         button.style.color = '#0b1c2c';
 
