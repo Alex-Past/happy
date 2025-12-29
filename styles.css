@@ -12,8 +12,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto; /* РАЗРЕШАЕМ ПРОКРУТКУ */
     position: relative;
+    padding: 20px; /* Добавим отступы по краям */
 }
 
 .container {
@@ -21,6 +23,8 @@ body {
     z-index: 10;
     padding: 2rem;
     max-width: 800px;
+    width: 100%; /* Добавляем */
+    margin: auto; /* Центрируем */
 }
 
 .title {
@@ -159,97 +163,69 @@ body {
     transform: translateY(0);
 }
 
+/* В конце файла в медиа-запросах: */
 @media (max-width: 768px) {
     body {
         padding: 10px;
+        display: block; /* МЕНЯЕМ НА BLOCK */
+        height: auto;
+        overflow-y: auto; /* Убедитесь, что прокрутка разрешена */
     }
     
     .container {
-        margin: 20px auto;
-        padding-bottom: 30px;
-    }
-    
-    .content {
-        padding: 30px 20px;
-        border-radius: 20px;
+        margin: 0 auto;
+        padding: 20px 15px 40px; /* Увеличим нижний padding */
+        display: block;
+        height: auto;
+        min-height: auto;
+        max-width: 100%;
     }
     
     .title {
         font-size: 2.8rem;
         margin-bottom: 30px;
+        word-wrap: break-word; /* Перенос длинных слов */
     }
     
-    .title-line:nth-child(2) {
-        font-size: 3.2rem;
-    }
-    
-    .greeting {
+    .subtitle {
         font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
         padding: 0 10px;
     }
     
-    .wish-list {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .wish-item {
-        padding: 15px;
-        font-size: 1rem;
-    }
-    
-    .code-wish {
-        padding: 20px;
-        font-size: 1.1rem;
-        margin: 30px 0;
-    }
-    
     .magic-btn {
-        padding: 15px 25px;
+        padding: 12px 25px;
         font-size: 1.1rem;
-        max-width: 100%;
+        margin: 1.5rem auto;
+        display: block;
+        max-width: 90%;
     }
     
-    .secret-wish {
+    .wish {
         font-size: 1.5rem;
-        padding: 20px;
-    }
-    
-    .personal-message {
-        padding: 25px;
-        font-size: 1.1rem;
-        margin-top: 40px;
-    }
-    
-    .signature {
-        font-size: 1.5rem;
-    }
-    
-    .decoration {
-        font-size: 2rem;
-    }
-    
-    .scroll-hint {
-        display: none; /* На мобильных скрываем, такую прокрутку очевидна */
+        margin-top: 1.5rem;
+        word-wrap: break-word;
+        padding: 0 10px;
     }
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .container {
+        padding: 15px 10px 30px;
+    }
+    
     .title {
         font-size: 2.2rem;
+        margin-bottom: 20px;
     }
     
-    .title-line:nth-child(2) {
-        font-size: 2.5rem;
-    }
-    
-    .content {
-        padding: 25px 15px;
-    }
-    
-    .magic-btn {
-        flex-direction: column;
-        gap: 10px;
-        padding: 12px 20px;
+    .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
     }
 }
